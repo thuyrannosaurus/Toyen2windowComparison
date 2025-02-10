@@ -1,0 +1,52 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.comparison-section {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.comparison-section h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.comparison-section h2 {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    color: #666;
+}
+
+/* More specific selectors for the comparison container */
+#image-compare, 
+.image-compare, 
+.image-compare-wrapper {
+    width: 100% !important;
+    max-width: 400px !important;
+    margin: 0 auto !important;
+}
+
+/* Control image sizes */
+#image-compare img,
+.image-compare img {
+    max-width: 400px !important;
+    width: 100% !important;
+    display: block;
+}
+
+/* Ensure the comparison view itself is constrained */
+.image-compare-view {
+    max-width: 400px !important;
+} 
