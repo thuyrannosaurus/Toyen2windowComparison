@@ -5,14 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Design Comparison Tool</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/image-compare-viewer/dist/image-compare-viewer.min.css">
 </head>
 <body>
-    <h1>Design Comparison Tool</h1>
-    <img-comparison-slider>
-        <img slot="first" src="old-design.png" />
-        <img slot="second" src="new-design.png" />
-    </img-comparison-slider>
+    <main>
+        <div class="comparison-section">
+            <h1>Sammenligning av oppgangsvinduer</h1>
+            <h2>Tøyen 2 Borettslag</h2>
+            
+            <div id="image-compare">
+                <img src="images/windowOld.jpg" alt="Gamle vinduer" />
+                <img src="images/windowNew.jpg" alt="Nye vinduer" />
+            </div>
+        </div>
+    </main>
 
-    <script type="module" src="https://cdn.jsdelivr.net/npm/img-comparison-slider@1.0.0"></script>
+    <script src="https://unpkg.com/image-compare-viewer/dist/image-compare-viewer.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
