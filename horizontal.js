@@ -15,28 +15,32 @@ const options = {
     verticalMode: false
 };
 
-window.addEventListener('load', function() {
-    const viewers = document.querySelectorAll(".image-compare");
-    
-    // Prevent default touch behavior on the entire container
-    document.querySelector('.max-w-3xl').addEventListener('touchmove', (e) => {
-        if (e.target.closest('.image-compare')) {
-            e.preventDefault();
-            e.stopPropagation();
-        }
-    }, { passive: false });
+document.addEventListener('DOMContentLoaded', () => {
+    let currentViewer = null;
 
-    viewers.forEach((element) => {
-        let view = new ImageCompare(element, options).mount();
-        
-        // Prevent focus and scroll on touch start
-        element.addEventListener('touchstart', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            // Prevent focus
-            if (document.activeElement instanceof HTMLElement) {
-                document.activeElement.blur();
-            }
-        }, { passive: false });
+    // Initialize the first comparison
+    const firstContainer = document.querySelector('#comparison1 .image-compare');
+    currentViewer = new ImageCompare(firstContainer, options).mount();
+
+    // Handle comparison switching
+    const selector = document.getElementById('comparison-selector');
+    selector.addEventListener('change', (e) => {
+        // Hide all containers
+        document.querySelectorAll('.comparison-container').forEach(container => {
+            container.classList.add('hidden');
+        });
+
+        // Show selected container
+        const selectedContainer = document.getElementById(e.target.value);
+        selectedContainer.classList.remove('hidden');
+
+        // Destroy previous viewer if it exists
+        if (currentViewer) {
+            currentViewer.unmount();
+        }
+
+        // Initialize new viewer
+        const newContainer = selectedContainer.querySelector('.image-compare');
+        currentViewer = new ImageCompare(newContainer, options).mount();
     });
 }); 
