@@ -18,6 +18,6 @@ const options = {
 window.addEventListener('load', function() {
     const viewers = document.querySelectorAll(".image-compare");
     viewers.forEach((element) => {
-        new ImageCompare(element, options).mount();
+        let view = new ImageCompare(element, options).mount();
     });
 }); 
