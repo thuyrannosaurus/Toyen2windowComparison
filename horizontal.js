@@ -16,9 +16,7 @@ const options = {
 };
 
 window.addEventListener('load', function() {
-    // Using querySelectorAll to get all comparison containers
-    const viewers = document.querySelectorAll("[id^='image-compare-']");
-    
+    const viewers = document.querySelectorAll(".image-compare");
     viewers.forEach((element) => {
         new ImageCompare(element, options).mount();
     });
