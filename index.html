@@ -7,25 +7,17 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://unpkg.com/image-compare-viewer/dist/image-compare-viewer.min.css">
     <style>
-        /* Only essential overrides for the comparison viewer */
         .image-compare,
         .image-compare-wrapper,
         .image-compare-view {
             max-width: 800px !important;
             width: 100% !important;
         }
-
-        /* Prevent focus management */
-        .image-compare {
-            -webkit-tap-highlight-color: transparent;
-            outline: none;
-            touch-action: none; /* Prevent browser handling of touch events */
-        }
     </style>
 </head>
 <body class="min-h-screen p-2 md:p-5 bg-gray-50">
     <main class="max-w-5xl mx-auto">
-        <div class="max-w-3xl mx-auto p-2 md:p-5 comparison-container">
+        <div class="max-w-3xl mx-auto p-2 md:p-5">
             <div class="flex justify-between items-center mb-4 md:mb-8">
                 <div>
                     <h1 class="text-1xl font-bold">Sammenligning av oppgangsvinduer</h1>
@@ -38,30 +30,44 @@
                     Bytt til vertikal
                 </a>
             </div>
+
+            <!-- Dropdown selector -->
+            <select id="comparison-selector" class="w-full p-2 mb-8 border rounded-lg bg-white shadow-sm">
+                <option value="comparison1">1. Utvendig sammenligning</option>
+                <option value="comparison2">2. Innvendig sammenligning</option>
+                <option value="comparison3">3. Innvendig tykkelse sammenligning</option>
+            </select>
             
-            <div class="image-compare max-w-3xl mx-auto mb-8">
-                <img src="images/windowOld.jpg" alt="Gamle vinduer" loading="eager" />
-                <img src="images/windowNew.jpg" alt="Nye vinduer" loading="eager" />
+            <!-- Comparison containers -->
+            <div id="comparison1" class="comparison-container">
+                <div class="image-compare max-w-3xl mx-auto mb-8">
+                    <img src="images/windowOld.jpg" alt="Gamle vinduer" loading="eager" />
+                    <img src="images/windowNew.jpg" alt="Nye vinduer" loading="eager" />
+                </div>
+                <p class="text-xs text-gray-500 mt-2 mb-8 text-left">
+                    NB: For å sikre best mulig sammenligning er bildene justert til samme vinkel hvor bygningsmassen er brukt som mal. Bildene er ellers uredigerte og viser den faktiske tilstanden. Fotografert av Thuy Gia Nguyen 10.02.2025 kl 10:20
+                </p>
             </div>
-            <p class="text-xs text-gray-500 mt-2 mb-8 text-left">
-                NB: For å sikre best mulig sammenligning er bildene justert til samme vinkel hvor bygningsmassen er brukt som mal. Bildene er ellers uredigerte og viser den faktiske tilstanden. Fotografert av Thuy Gia Nguyen 10.02.2025 kl 10:20
-            </p>
 
-            <div class="image-compare max-w-3xl mx-auto mb-8">
-                <img src="images/2AinnvendigOriginal.jpg" alt="Gamle vinduer - Sett 2" loading="eager" />
-                <img src="images/2BinnvendigNy.jpg" alt="Nye vinduer - Sett 2" loading="eager" />
+            <div id="comparison2" class="comparison-container hidden">
+                <div class="image-compare max-w-3xl mx-auto mb-8">
+                    <img src="images/2AinnvendigOriginal.jpg" alt="Gamle vinduer - Sett 2" loading="eager" />
+                    <img src="images/2BinnvendigNy.jpg" alt="Nye vinduer - Sett 2" loading="eager" />
+                </div>
+                <p class="text-xs text-gray-500 mt-2 mb-8 text-left">
+                    Sammenligning 2 - Innvendig bilde tatt i Monrads gate 21C og Monradsgate 21D. Fotografert av Thuy Gia Nguyen 17.02.2025 kl 11:17
+                </p>
             </div>
-            <p class="text-xs text-gray-500 mt-2 mb-8 text-left">
-                Sammenligning 2 - Innvendig bilde tatt i Monrads gate 21C og Monradsgate 21D. Fotografert av Thuy Gia Nguyen 17.02.2025 kl 11:17
-            </p>
 
-            <div class="image-compare max-w-3xl mx-auto mb-8">
-                <img src="images/3AinnvendigTykkelseOriginal.jpg" alt="Gamle vinduer - Sett 3" loading="eager" />
-                <img src="images/3BinnvendigTykkelseNy.jpg" alt="Nye vinduer - Sett 3" loading="eager" />
+            <div id="comparison3" class="comparison-container hidden">
+                <div class="image-compare max-w-3xl mx-auto mb-8">
+                    <img src="images/3AinnvendigTykkelseOriginal.jpg" alt="Gamle vinduer - Sett 3" loading="eager" />
+                    <img src="images/3BinnvendigTykkelseNy.jpg" alt="Nye vinduer - Sett 3" loading="eager" />
+                </div>
+                <p class="text-xs text-gray-500 mt-2 mb-8 text-left">
+                    Sammenligning 3 - Innvendig bilde tatt i Monrads gate 21C og Monradsgate 21D. Fotografert av Thuy Gia Nguyen 17.02.2025 kl 11:24
+                </p>
             </div>
-            <p class="text-xs text-gray-500 mt-2 mb-8 text-left">
-                Sammenligning 3 - Innvendig bilde tatt i Monrads gate 21C og Monradsgate 21D. Fotografert av Thuy Gia Nguyen 17.02.2025 kl 11:24
-            </p>
         </div>
     </main>
 
